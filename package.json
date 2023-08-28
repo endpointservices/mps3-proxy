@@ -1,0 +1,23 @@
+{
+  "name": "mps3-proxy",
+  "version": "1.0.0",
+  "description": "How to protect an s3 bucket with a proxy",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "wrangler publish",
+    "dev": "wrangler dev --local"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endpointservices/mps3-proxy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/endpointservices/mps3-proxy/issues"
+  },
+  "homepage": "https://github.com/endpointservices/mps3-proxy#readme",
+  "dependencies": {
+    "cloudworker-proxy": "^1.16.1"
+  }
+}
