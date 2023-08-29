@@ -1,5 +1,7 @@
-const Proxy = require("cloudworker-proxy");
 // https://github.com/markusahlstrand/cloudworker-proxy
+const Proxy = require("cloudworker-proxy");
+import index_html from "./index.html";
+import simple_css from "./simple.css.txt";
 
 const config = [
   {
@@ -25,13 +27,32 @@ const config = [
   },
   {
     handlerName: "s3",
-    path: "/:file*",
+    path: "s3-demo/:file*",
     options: {
       region: "eu-central-1",
       accessKeyId: S3_KEY_ID,
       secretAccessKey: S3_ACCESS_KEY,
       bucket: "mps3-demo",
       path: "{file}",
+    },
+  },
+  {
+    handlerName: "response",
+    path: "/simple.css",
+    options: {
+      headers: {
+        "Content-Type": "text/css; charset=utf-8",
+      },
+      body: simple_css,
+    },
+  },
+  {
+    handlerName: "response",
+    options: {
+      headers: {
+        "Content-Type": "text/html; charset=utf-8",
+      },
+      body: index_html,
     },
   },
 ];
