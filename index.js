@@ -1,5 +1,5 @@
 // https://github.com/markusahlstrand/cloudworker-proxy
-const Proxy = require("cloudworker-proxy");
+const Proxy = require("edge-proxy");
 import index_html from "./index.html";
 import simple_css from "./simple.css.txt";
 
@@ -18,8 +18,8 @@ const config = [
       allowedOrigins: ["*"],
       allowedMethods: ["GET", "PUT", "POST", "DELETE", "HEAD", "OPTIONS"],
       allowCredentials: true,
-      allowedHeaders: ["Content-Type"],
-      allowedExposeHeaders: ["WWW-Authenticate", "Server-Authorization"],
+      allowedHeaders: ["*"],
+      allowedExposeHeaders: ["X-Amz-Version-Id", "ETag"],
       maxAge: 600,
       optionsSuccessStatus: 204,
       terminatePreflight: false,
@@ -27,7 +27,8 @@ const config = [
   },
   {
     handlerName: "s3",
-    path: "s3-demo/:file*",
+    path: "/s3-demo/:file*",
+    method: ["PUT", "GET"],
     options: {
       region: "eu-central-1",
       accessKeyId: S3_KEY_ID,
