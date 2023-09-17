@@ -27,14 +27,14 @@ const config = [
   },
   {
     handlerName: "s3",
-    path: "/s3-demo/:file*",
-    method: ["PUT", "GET"],
+    path: "/s3-demo/:file",
+    method: ["PUT", "GET", "DELETE"],
     options: {
       region: "eu-central-1",
       accessKeyId: S3_KEY_ID,
       secretAccessKey: S3_ACCESS_KEY,
       bucket: "mps3-demo",
-      path: "{file}",
+      enableBucketOperations: true,
     },
   },
   {
