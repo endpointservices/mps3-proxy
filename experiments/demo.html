@@ -1,0 +1,13 @@
+<script type="module">
+    const mps3 = await import("https://cdn.skypack.dev/mps3@0.0.64?min")
+    const config = {
+        defaultBucket: "s3-demo",
+        defaultManifest: "proxy",
+        s3Config: {
+            endpoint: "https://mps3-proxy.endpointservices.workers.dev"
+        }
+    }
+    const s3_proxy = new mps3.MPS3(config);
+    s3_proxy.subscribe("message", (value) => console.log(value));
+    s3_proxy.put("message", "hello world!");
+</script>
