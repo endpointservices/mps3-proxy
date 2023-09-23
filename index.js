@@ -27,7 +27,7 @@ const config = [
   },
   {
     handlerName: "s3",
-    path: "/s3-demo/:file",
+    path: "/s3-demo/:file*",
     method: ["PUT", "GET", "DELETE"],
     options: {
       region: "eu-central-1",

@@ -4,7 +4,7 @@
   "description": "How to protect an s3 bucket with a proxy",
   "main": "index.js",
   "scripts": {
-    "deploy": "bun install; wrangler deploy",
+    "deploy": "bun update; wrangler deploy",
     "dev": "wrangler dev --local"
   },
   "repository": {
@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/endpointservices/mps3-proxy#readme",
   "dependencies": {
-    "edge-proxy": "0.0.7"
+    "edge-proxy": "^0.0"
   },
   "devDependencies": {
     "wrangler": "^3.6.0"
